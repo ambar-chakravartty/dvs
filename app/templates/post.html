@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ post.title }} - Flask Blog</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1 class="mt-5">{{ post.title }}</h1>
+                <p class="lead" id="content">{{post.content}}</p>
+                <hr>
+                <p class="text-muted">Posted by {{ post.author }} on {{ post.when.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                <a href="{{ url_for('routes.index') }}" class="btn btn-primary">Back to Home</a>
+                {% if current_user.is_authenticated and current_user.username == post.author %}
+                <form action="{{ url_for('routes.delete_post', post_id=post._id) }}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete Post</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script type="module">
+        import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+        var djangoData = $('#my-data').data();
+        document.getElementById('content').innerHTML =
+          marked.parse(document.getElementById('content').innerHTML);
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
