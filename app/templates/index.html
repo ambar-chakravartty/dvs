@@ -1,34 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-12">
-        <h1 class="text-center">Welcome to DevInsight</h1>     
-        <hr class="bg-light">
-        {% for post in posts %}
-            <div class="post-preview">
-                <a href="{{ url_for('routes.post', post_id=post['_id']) }}">
-                    <h2 class="post-title">{{ post['title'] }}</h2>
-                    <p class="post-subtitle" id="content">{{ post['content'][:100] }}...</p>
-                    <script type="module">
-                        import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
-                       // var djangoData = $('#my-data').data();
-                       
-                            document.getElementById('content').innerHTML =
-                          marked.parse(document.getElementById('content').innerHTML);
-                          console.log('parsing');
-                      
-                      </script>
-                    
-                </a>
-                <p class="post-meta">Posted by {{ post['author'] }} on {{ post['when'].strftime('%B %d, %Y') }}</p>
-                <hr class="bg-light">
-            </div>
-        {% else %}
-            <p>No posts found. <a href="{{ url_for('routes.new_post') }}">Create a new post</a> to get started.</p>
-        
-        {% endfor %}
+  <!-- Main Content -->
+  <div class="container mt-5 bg-dark text-light">
+    <div class="jumbotron bg-dark text-light">
+      <h1 class="display-4">Welcome to DevInsight!</h1>
+      <p class="lead">Share your thoughts and read articles from other bloggers.</p>
+      <hr class="my-4">
+      <p>Explore recent posts below or start writing your own!</p>
+      <a class="btn btn-primary btn-lg" href="{{ url_for('routes.index') }}">Blogs</a>
     </div>
-</div>
 
-{% endblock %}
+ 
+
+  {% endblock %}

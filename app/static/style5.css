@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Poppins;
+}
+body{
+    font-family: Poppins;
+    color: rgb(215, 208, 208);
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+header{
+    width: 1140px;
+    max-width: 80%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+.background{
+    background:rgba(0,0,0,0.7) url('backgroundimg.jpg');
+    background-size: cover;
+    background-blend-mode:darken;
+}
+
+
+.navbar {
+    display: flex;
+    padding: 15px 20px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.data-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px ;
+}
+.Logo {
+    width: 120px;
+}
+a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease-in;
+    margin: 0 10px;
+    font-weight: bold;
+}
+.menu-data {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+a:hover {
+    background-color: white;
+    color: rgb(0, 12, 34);
+}
+
+.size-icon {
+    font-size: 26px;
+}
+
+#Menu-bar {
+    display: none;
+    margin-left: auto;
+}
+
+#close {
+    display: none;
+}
+
+@media (max-width:761px) {
+    .menu-data {
+        position: absolute;
+        flex-direction: column;
+        text-align: left;
+        align-items: flex-end;
+        left: 100%;
+        top: 0;
+        transform: translate(-100%);
+        background-color: black;
+        width: 250px;
+        padding: 20px;
+        transition: display ease-in 5s;
+        z-index: -10;
+    }
+
+    #Menu-bar {
+        display: block;
+    }
+
+    #close {
+        display: block;
+    }
+} 
+
+#image{
+    width:40%;
+    border-radius:10%;
+    flex:0 50%;
+    max-width: 50%;
+    height: auto;
+}
+.heading{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.about-us{
+    display: flex;
+    align-items: center;
+    width:85%;
+    margin: auto;
+}
+
+
+.content{
+    padding:25px 35px;
+}
+.content h2{
+    margin: 15px 0 5px 0;
+}
+
+

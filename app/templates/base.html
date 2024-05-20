@@ -12,9 +12,17 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('routes.index') }}">Home</a>
+                    <a class="nav-link" href="{{ url_for('routes.home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('routes.index') }}">Blogs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('routes.about') }}">About Us</a>
                 </li>
                 {% if current_user.is_authenticated %}
+            
+                
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('routes.new_post') }}">New Post</a>
                     </li>

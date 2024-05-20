@@ -14,9 +14,20 @@ model = genai.GenerativeModel('models/gemini-pro')
 bp = Blueprint('routes', __name__)
 
 @bp.route('/')
+def home():
+    #posts = Post.get_all_posts()
+    return render_template('index.html')
+
+@bp.route('/blogs')
 def index():
     posts = Post.get_all_posts()
-    return render_template('index.html', posts=posts)
+    return render_template('posts.html', posts=posts)
+
+
+@bp.route('/about')
+def about():
+    #
+    return render_template('about.html')
 
 @bp.route('/post/<post_id>')
 def post(post_id):
@@ -52,10 +63,7 @@ def new_error():
             flash('Title and Content are required', 'danger')
             return render_template('new_post.html')
 
-        response = model.generate_content('Error Context : ' + title + 'Please help me with the following error ' + error)
-
-
-   
+        response = model.generate_content('Context ' + title + 'Please help me with' + error)
 
         content = response.text
 
