@@ -7,7 +7,7 @@ import datetime
 
 import google.generativeai as genai
 
-genai.configure(api_key='AIzaSyC4UajwizYkqWy0M38DP29DRAfgypGt9OM')
+genai.configure(api_key=)
 model = genai.GenerativeModel('models/gemini-pro')
 
 
